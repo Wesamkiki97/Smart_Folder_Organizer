@@ -1,10 +1,10 @@
-"""Scan the Folder and list the file then send it one by one to classifier and resort it """
+"""Scan the Folder and return a list of files"""
 from pathlib import Path
-from classifier import classify_file
 
-tempDB = {}
-def scanner(folder_path:str): 
+def scan_folder(folder_path:str) -> list[Path]: 
     folder = Path(folder_path)
+    files=[]
     for file in folder.iterdir():
-        
-        tempDB[file.name] = classify_file(Path(file))
+        if file.is_file():
+            files.append(file)
+    return files

@@ -7,8 +7,8 @@ def build_plan(folder):
     for file in files:
         category = classify_file(file)
         if category in plan:
-         plan[category].append(file.name)
+         plan[category].append(file)
         else:
-         plan[category] = [file.name]
+         plan[category] = [file]
     return plan
 

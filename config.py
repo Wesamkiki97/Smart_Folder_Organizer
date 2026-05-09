@@ -16,3 +16,5 @@ CATEGORIES = {
 
 UNKNOWN_CATEGORY = "Unknown"
 OTHER_CATEGORY = "Others"
+
+DRY_RUN = True

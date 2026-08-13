@@ -1,18 +1,20 @@
-"""Generator "Report" to show the files in the folder"""
-def print_preview(plan,summary):
-    print(f"""Smart Folder Organizer Preview\n""")
+"""Print readable previews and execution results."""
+
+
+def print_preview(plan, summary):
+    print("Smart Folder Organizer Preview\n")
     for category, files in plan.items():
         print(f"{category} ({len(files)} files):")
         for file in files:
             print(f"- {file.name}")
         print()
-    print(f"Summary:")
+    print("Summary:")
     for category, file_num in summary.items():
         print(f"{category}: {file_num}")
 
 
-def print_full_preview(plan,summary,folder_summary,moves_preview):
-    print(f"""Smart Folder Organizer Preview\n""")
+def print_full_preview(plan, summary, folder_summary, moves_preview):
+    print("Smart Folder Organizer Preview\n")
     print("Scan source folder preview:")
     for category, files in plan.items():
         print(f"{category} ({len(files)} files):")
@@ -24,15 +26,24 @@ def print_full_preview(plan,summary,folder_summary,moves_preview):
     for category, file_num in summary.items():
         print(f"{category}: {file_num}")
     print("---------------------------------")
-    print("folder execution:")
+    print("Folder execution:")
     for status, folders in folder_summary.items():
         print(f"{status}:")
         for folder in folders:
-            print(f"-{folder}")
+            print(f"- {folder}")
         print()
     print("---------------------------------")
-    print("moves files summary:")
+    print("File move preview:")
     for transaction in moves_preview:
         print(".......................")
         for key, value in transaction.items():
             print(f"{key}: {value}")
+
+
+def print_move_summary(move_summary):
+    print("\nMove result:")
+    for transaction in move_summary:
+        print(
+            f"- {transaction['file']}: "
+            f"{transaction['status']}"
+        )
